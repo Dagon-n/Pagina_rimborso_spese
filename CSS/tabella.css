@@ -1,0 +1,102 @@
+.tabella_risultato {
+
+    display: none;
+    margin-right: 15px;
+
+}
+
+table {
+
+    width: 98%;
+    margin: 17px 15px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
+    border-collapse: collapse;
+
+}
+
+table, th, td {
+
+    text-align: center;
+    padding: 7px;
+
+}
+
+tr:nth-child(even) {
+
+    background-color: #f2f2f2;
+
+}
+
+/*  scritta data, per ordinare la tabella */
+
+.data_sort {
+
+    cursor: pointer;
+
+}
+
+.data_sort:hover {
+
+    color: red;
+
+}
+
+/* Bottone per eliminare la riga selezionata */ 
+
+.btn_eliminariga {
+
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    border: none;
+    padding: 4px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+
+}
+
+.btn_eliminariga:hover {
+
+    background-color: #e50000;
+
+}
+
+/* Bottone per editare la riga */
+
+.btn_editariga {
+
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+    border: none;
+    padding: 4px 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: lightblue;
+    color: white;
+
+}
+
+.btn_editariga:hover {
+
+    background-color: #9bc2cf;
+
+}
+
+/* La colonna 'Importo Rimborsato' è gialla */
+
+.col_importorimb{
+
+    background-color: yellow;
+
+}
+
+/* parte scritta dal js in base al rimborso */
+
+.dettaglio_rimborso {
+
+    font-size: 13px;
+
+}

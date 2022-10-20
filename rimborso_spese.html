@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <link rel="stylesheet" href="CSS/main_structure.css">
+    <link rel="stylesheet" href="CSS/form.css">
+    <link rel="stylesheet" href="CSS/tabella.css">
+    <link rel="stylesheet" href="CSS/responsive.css">
+    <link rel="stylesheet" href="CSS/editor_dati.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/2102ec27e0.js" crossorigin="anonymous"></script>
+    <script src="JS/funzioni_tabella.js"></script>
+    <script src="JS/ingrandisci_tabella.js"></script>
+
+</head>
+<body>
+
+<div class="page">
+
+    <div class="header">
+
+            <nav>
+                <div>Logo</div>
+            </nav>
+
+    </div>
+
+    <div class="parteSinistra" id="parteSinistra">
+
+            <div id="contenitore_form" class="contenitore_form">
+
+                <form id="form_gstrmb" onsubmit=" return invia()">
+    
+                    <button type="button" onclick="nascondiForm()" class="nascondi_form">&nwarr;</button>
+    
+                    <h1 id="nome_dipendente">Filippo Vallarino</h1>
+    
+                    <label for="selezione_data" id="label_selezionedata">Seleziona data</label><br>
+                    <input type="date" id="selezione_data" required><br><br>
+    
+                    <label for="tipo_spesa">Scegli il tipo di spesa effettuato</label>
+                    <select name="tipo_spesa" id="tipo_spesa" required>
+                        <option>Scegli un opzione</option>
+                        <option value="Taxi">Taxi</option>
+                        <option value="Treno">Treno</option>
+                        <option value="Autostrada">Autostrada</option>
+                        <option value="Benzina">Benzina</option>
+                        <option value="Pranzo">Pranzo</option>
+                        <option value="Cena">Cena</option>
+                        <option value="Hotel">Hotel</option>
+                    </select><br><br>
+    
+                    <label for="importo_scelto">Importo per cui si chiede un rimborso</label>
+                    <input type="text" id="importo_scelto" required><br><br>
+    
+                    <label>Hai ancora la ricevuta?</label><br>
+                    <label class="radioButtons">Si
+                        <input type="radio" name="ricevuta" id="selezione_ricevuta_si" value="Si" checked>
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radioButtons">No
+                        <input type="radio" name="ricevuta" id="selezione_ricevuta_no" value="No">
+                        <span class="checkmark"></span>
+                    </label>
+    
+                    <div class="alert" id="alert_noricevuta">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        <b>Avviso!</b> Non verranno rimborsati più di 10€ senza ricevuta
+                    </div>
+                    
+                    <div class="sezione_bottoni">
+                        <label for="pulsante_aggiungidati"></label>
+                        <input type="submit" class="pulsante_aggiungidati" id="pulsante_aggiungidati"></input>
+                        <button type="button" class="pulsante_richiediappr" onclick="return richiediApprovazione()">Richiedi Approvazione</button>
+                    </div>
+                
+                </form>
+    
+            </div>
+
+    </div>
+
+    <div class="parteDestra" id="parteDestra">
+
+        <button type="button" onclick="mostraForm()" class="mostra_form" id="mostra_form">&searr;</button>
+
+            <div class="tabella_risultato" id="tabella_risultato">
+
+                <table id="tabella">
+        
+                    <thead id="testa">
+                        <th><a class="data_sort">Data</a></th>
+                        <th>Tipo di Spesa</th>
+                        <th>Importo</th>
+                        <th>Ricevuta</th>
+                        <th class="col_importorimb">Importo Rimborsato</th>
+                        <th></th>
+                    </thead>
+                    <tbody id="tcorpo"></tbody>
+                    <tr class="riga_totale" id="riga_totale">
+                        <th>Totale</th>
+                        <th></th>
+                        <th id="totale_importo"></th>
+                        <th></th>
+                        <th id="totale_rimborso"></th>
+                        <th></th>
+                    </tr>
+        
+                </table>
+        
+            </div>
+
+    </div>
+
+    <div class="popup_editor" id="popup_editor">
+
+        <form id="popup" class="popup" onsubmit="return confermaModifiche()">
+
+            <div class="popup_body">
+
+                <h3>Modifica riga</h3>
+
+                <label for="edit_data">Selezionato: <span id="data_rigaselezionata"></span></label><br>
+                <input type="date" id="edit_data" required><br>
+
+                <label for="edit_tipo_spesa">Selezionato: <span id="tipospesa_rigaselezionata"></span></label><br>
+                <select name="tipo_spesa" id="edit_tipo_spesa" required>
+                    <option>Scegli un opzione</option>
+                    <option value="Taxi">Taxi</option>
+                    <option value="Treno">Treno</option>
+                    <option value="Autostrada">Autostrada</option>
+                    <option value="Benzina">Benzina</option>
+                    <option value="Pranzo">Pranzo</option>
+                    <option value="Cena">Cena</option>
+                    <option value="Hotel">Hotel</option>
+                </select><br>
+
+                <label for="edit_importo_scelto">Selezionato: <span id="importo_rigaselezionata"></label><br>
+                <input type="text" id="edit_importo_scelto" required><br>
+
+                <label>Hai ancora la ricevuta?</label><br>
+                    <label class="edit_radioButtons">Si
+                        <input type="radio" name="edit_ricevuta" id="edit_ricevuta_si" value="Si">
+                        <span class="edit_checkmark"></span>
+                    </label>
+                    <label class="edit_radioButtons">No
+                        <input type="radio" name="edit_ricevuta" id="edit_ricevuta_no" value="No">
+                        <span class="edit_checkmark"></span>
+                    </label>
+
+                <div class="bottoni_popup">
+                    <label for="btn_conferma"></label>
+                    <input type="submit" class="btn_conferma" id="btn_conferma"></input>
+                    <button type="button" class="btn_chiudi" onclick="chiudipopup()"><i class="fa-solid fa-xmark fa-xl"></i></button>
+                </div>
+
+            </div>
+          
+        </form>
+
+    </div>
+
+</div>
+    
+</body>
+
+</html>

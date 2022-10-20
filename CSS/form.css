@@ -1,0 +1,186 @@
+.contenitore_form{
+
+    /* height: 90%; */
+    border-radius: 5px;
+    background-color: #fafafe;
+    padding: 20px;
+    margin: 17px 15px;
+    box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
+
+}
+
+/* il bottone 'mostra form' parte nascosto, comparea al click di 'nascondi form' */
+
+#mostra_form {
+
+    display: none;
+    margin-top: 8px;
+    margin-left: 17px;
+
+}
+
+.mostra_form, .nascondi_form {
+
+    padding: 9px 11px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #aaaaaa;
+    opacity: 0.6;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.nascondi_form:hover{
+
+    background-color: #919191;
+
+}
+
+.mostra_form:hover{
+
+    background-color: #919191;
+}
+
+
+/*  nome dipendente */
+
+#nome_dipendente {
+
+    font-size: 27px;
+
+}
+
+/*  calendario, testo importo, select tipo spesa  */
+
+#selezione_data, #tipo_spesa, #importo_scelto {
+
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+
+/*  Radio buttons ricevuta  */
+
+.radioButtons {
+
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin: 8px 0 8px 0;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+
+}
+
+.radioButtons input {   /* Nasconde i Radio buttons di default */
+      
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+.checkmark {  /* Crea un custom radio button */
+      
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 1px solid black;
+
+}
+
+.radioButtons:hover input ~ .checkmark {    /* Quando hover, aggiungi un grigio scuro */
+
+    background-color: #ccc;
+
+}
+
+.radioButtons input:checked ~ .checkmark { /* Quando checkato, colora di blu */
+
+    background-color: #2196F3;
+
+}
+
+/* Alert rimborso senza ricevuta */
+
+.alert {
+
+    padding: 20px;
+    background-color: #ff9800; /* Red */
+    color: white;
+    font-size: 16px;
+    margin: 20px 0 15px 0;
+
+}
+
+.closebtn { /* 'x' per chiudere l'alert */
+
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.closebtn:hover {   /* Quando hover, colora la 'x' di nero */
+
+    color: black;
+
+}
+
+/*  pulsante aggiungi dati  */
+
+.pulsante_aggiungidati {    
+
+    width: 45%;
+    background-color: lightblue;
+    padding: 14px 20px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+
+}
+
+.pulsante_aggiungidati:hover {  
+
+    background-color: #9bc2cf;
+
+}
+
+.pulsante_richiediappr {
+
+    width: 45%;
+    background-color: rgb(76, 175, 80);
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5%;
+    margin-top: 20px;
+
+}
+
+.pulsante_richiediappr:hover{   /* Quando hover, cambia colore in verde scuro */
+
+    background-color: #449d48;
+
+}

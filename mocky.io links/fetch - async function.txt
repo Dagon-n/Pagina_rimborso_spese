@@ -1,0 +1,22 @@
+ASYNC FUNCTION:
+
+async function getRimborsi() {
+    const response = await fetch(api_url);
+    const data = await response.json();
+    console.log(data);
+}
+
+
+FETCH:
+
+const api_url = 'link'
+
+fetch(api_url, { 
+  method: 'GET'
+})
+.then(function(response) { return response.json(); })
+.then(function(json) {
+  
+    console.log(json);
+
+});

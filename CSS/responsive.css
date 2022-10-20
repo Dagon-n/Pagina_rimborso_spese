@@ -1,0 +1,55 @@
+@media (max-width: 1040px){
+
+    .parteSinistra{
+
+        width: 100%;
+        display: inline;
+        float: left;
+    
+    }
+    
+    .contenitore_form {
+
+        width: 70%;
+        margin: 17px auto !important;
+
+    }
+
+    .parteDestra{
+    
+        width: 100% !important;
+        display: inline;
+        float: right;
+    
+    }
+
+    .tabella_risultato {
+
+        overflow-x: auto;
+        white-space: nowrap;
+
+    }
+    
+
+    .pulsante_richiediappr, .pulsante_aggiungidati{
+
+        font-size: 13px;
+
+    }
+}
+
+@media (min-width: 1040px){
+
+    .contenitore_form {
+
+        margin: 17px 90px;
+
+    }
+
+    .tabella_risultato {
+
+        margin-right: 90px;
+
+    }
+
+}
