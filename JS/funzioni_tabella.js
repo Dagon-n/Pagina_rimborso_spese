@@ -10,13 +10,17 @@ let importoDaSommare = 0;
 
 const api_url_maxRimborsoSpese = 'https://run.mocky.io/v3/87ce05ff-86d8-4662-9ee8-b51225bee287';
 
-fetch(api_url_maxRimborsoSpese, { 
-  method: 'GET'
-})
-.then(function(response) { return response.json(); })
-.then(function(json) {
-  
-    maxRimborsiSpese = json;
+addEventListener('load', (event) => { /* Carica JSON dati rimborsi spese */
+
+    fetch(api_url_maxRimborsoSpese, { 
+        method: 'GET'
+      })
+      .then(function(response) { return response.json(); })
+      .then(function(json) {
+        
+          maxRimborsiSpese = json;
+      
+      });
 
 });
 
